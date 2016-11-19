@@ -1,0 +1,2 @@
+FROM mono
+WORKDIR /src
