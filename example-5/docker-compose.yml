@@ -1,0 +1,38 @@
+database:
+  build: database/
+
+application1:
+  build: app/
+  links:
+    - database:redis
+
+application2:
+  build: app/
+  links:
+    - database:redis
+
+application3:
+  build: app/
+  links:
+    - database:redis
+
+application4:
+  build: app/
+  links:
+    - database:redis
+
+application5:
+  build: app/
+  links:
+    - database:redis
+
+proxy:
+  build: proxy/
+  ports:
+    - "7000:80"
+  links:
+    - application1:node1
+    - application2:node2
+    - application3:node3
+    - application4:node4
+    - application5:node5
